@@ -25,7 +25,7 @@ export const footerColumns = {
     { href: "/packages/premium-laminated-business-cards", label: "Business Cards" },
     { href: "/packages/full-menu-book-package", label: "Menus" },
     { href: "/packages/pull-up-banner-package", label: "Banners" },
-    { href: "/packages/real-estate-flyer-package", label: "Posters" },
+    { href: "/packages/real-estate-flyer-package", label: "Real Estate Flyers" },
     { href: "/packages/event-ticket-package", label: "Tickets" },
   ],
   company: [

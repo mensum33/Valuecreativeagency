@@ -9,15 +9,16 @@ import { createMetadata } from "@/lib/metadata";
 
 const detailedSteps = [
   { step: "1", title: "Choose package", desc: "Browse fixed-price packages and select the one that fits your needs." },
-  { step: "2", title: "Upload details", desc: "Provide your logo, text, photos, brand colours and delivery address." },
-  { step: "3", title: "Design starts", desc: "Our design team reviews your brief and begins creating your options." },
-  { step: "4", title: "Two design options", desc: "You receive two distinct design directions to compare." },
-  { step: "5", title: "Customer chooses", desc: "Select your preferred design direction." },
-  { step: "6", title: "Minor revision", desc: "Request one minor revision if needed — included in every package." },
-  { step: "7", title: "Final proof", desc: "Review and approve the final proof before production." },
-  { step: "8", title: "Print and finish", desc: "We print, laminate, fold, bind or assemble as required." },
-  { step: "9", title: "Dispatch and delivery", desc: "Your order is dispatched and delivered NZ-wide." },
-  { step: "10", title: "Reorder or add-ons", desc: "Reorder easily or add digital media and extra quantities." },
+  { step: "2", title: "Complete payment", desc: "Full payment starts your order and reserves design time." },
+  { step: "3", title: "Upload details", desc: "Provide your logo, text, photos, brand colours and delivery address." },
+  { step: "4", title: "Design starts", desc: "Our design team reviews your brief and begins creating your options." },
+  { step: "5", title: "Two design options", desc: "You receive two distinct design directions to compare." },
+  { step: "6", title: "Customer chooses", desc: "Select your preferred design direction." },
+  { step: "7", title: "Minor revision", desc: "Request one minor revision if needed — included in every package." },
+  { step: "8", title: "Final proof", desc: "Review and approve the final proof before production." },
+  { step: "9", title: "Print and finish", desc: "We print, laminate, fold, bind or assemble as required." },
+  { step: "10", title: "Dispatch and delivery", desc: "Your order is dispatched and delivered NZ-wide." },
+  { step: "11", title: "Reorder or add-ons", desc: "Reorder easily or add digital media and extra quantities." },
 ];
 
 const trustFaqs = faqs.filter((f) =>

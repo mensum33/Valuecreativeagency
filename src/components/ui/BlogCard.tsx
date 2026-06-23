@@ -13,9 +13,9 @@ export default function BlogCard({ post }: BlogCardProps) {
         <ImageWithFallback folder={post.imageFolder} alt={post.title} fill />
       </Link>
       <div className="p-5 md:p-6">
-        <p className="text-xs font-semibold uppercase tracking-wider text-accent">{post.category}</p>
+        <p className="text-xs font-semibold uppercase tracking-wider text-muted">{post.category}</p>
         <Link href={`/design-tips/${post.slug}`}>
-          <h3 className="mt-2 text-lg font-display font-semibold text-navy group-hover:text-accent transition-colors line-clamp-2">
+          <h3 className="mt-2 text-lg font-display font-semibold text-black group-hover:underline transition-colors line-clamp-2">
             {post.title}
           </h3>
         </Link>

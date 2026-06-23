@@ -26,7 +26,7 @@ export default function ThankYouPage() {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
           </svg>
         </div>
-        <h1 className="text-3xl md:text-4xl font-display font-semibold text-navy">
+        <h1 className="text-3xl md:text-4xl font-display font-semibold text-black">
           Thanks — your order has been received.
         </h1>
         <p className="mt-4 text-muted leading-relaxed">
@@ -36,7 +36,7 @@ export default function ThankYouPage() {
         <ol className="mt-10 text-left space-y-4">
           {nextSteps.map((step, i) => (
             <li key={step} className="flex items-start gap-4 card-premium p-4">
-              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-accent text-sm font-bold text-white">
+              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-black text-sm font-bold text-white">
                 {i + 1}
               </span>
               <span className="text-sm text-rich pt-1">{step}</span>

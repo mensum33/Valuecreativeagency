@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 
 import { mainNavLinks } from "@/data/navigation";
+import { CONTACT } from "@/lib/constants";
 
 const navLinks = mainNavLinks;
 
@@ -77,13 +78,16 @@ export default function Header() {
               {link.label}
             </Link>
           ))}
-          <div className="mt-4 flex flex-col gap-3 border-t border-border pt-4">
+          <div className="mt-4 flex flex-col sm:flex-row gap-3 border-t border-border pt-4">
             <Link href="/upload-artwork" className="btn-secondary" onClick={() => setMobileOpen(false)}>
               Upload Artwork
             </Link>
             <Link href="/packages" className="btn-primary" onClick={() => setMobileOpen(false)}>
               Shop Packages
             </Link>
+            <a href={`mailto:${CONTACT.email}`} className="btn-ghost text-center text-sm" onClick={() => setMobileOpen(false)}>
+              Email us
+            </a>
           </div>
         </nav>
       </div>

@@ -42,7 +42,7 @@ export default function BlogDetailPage({ params }: Props) {
       />
 
       <header className="max-w-3xl">
-        <p className="text-sm font-semibold uppercase tracking-wider text-accent">{post.category}</p>
+        <p className="text-sm font-semibold uppercase tracking-wider text-muted">{post.category}</p>
         <h1 className="mt-2 text-3xl md:text-5xl font-display font-semibold text-navy">{post.title}</h1>
         <div className="mt-4 flex items-center gap-4 text-sm text-muted">
           <time dateTime={post.publishedAt}>

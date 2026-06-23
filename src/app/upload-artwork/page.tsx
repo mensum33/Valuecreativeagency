@@ -1,7 +1,7 @@
 import Breadcrumbs from "@/components/ui/Breadcrumbs";
 import TrustBadges from "@/components/ui/TrustBadges";
 import { packages } from "@/data/packages";
-import { CONTACT } from "@/lib/constants";
+import { CONTACT, mailtoUpload } from "@/lib/constants";
 import { createMetadata } from "@/lib/metadata";
 
 export const metadata = createMetadata({
@@ -71,8 +71,11 @@ export default function UploadArtworkPage() {
             <textarea id="notes" name="notes" rows={5} className="w-full rounded-lg border border-border px-4 py-3 text-sm focus:outline focus:outline-2 focus:outline-black" placeholder="Tell us about your project, brand colours, inspiration..." />
           </div>
           <button type="submit" className="btn-primary" disabled>
-            Submit details (coming soon)
+            Submit online (coming soon)
           </button>
+          <a href={mailtoUpload()} className="btn-secondary inline-flex justify-center">
+            Email files instead
+          </a>
           <p className="text-xs text-muted">For now, email us at <a href={`mailto:${CONTACT.email}`} className="text-black underline">{CONTACT.email}</a></p>
         </form>
 

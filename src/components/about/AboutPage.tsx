@@ -34,11 +34,12 @@ const capabilities = [
 
 const processSteps = [
   { number: "01", title: "Choose your package", description: "Pick a fixed-price package that fits your business." },
-  { number: "02", title: "Upload your details", description: "Send your logo, wording, photos and project notes." },
-  { number: "03", title: "Receive two design options", description: "We create two creative directions for you to compare." },
-  { number: "04", title: "Choose your favourite", description: "Select the direction that best represents your business." },
-  { number: "05", title: "Approve your final proof", description: "Review and approve the final artwork before anything is printed.", highlight: true },
-  { number: "06", title: "We print, finish and deliver NZ-wide", description: "Your order is printed, finished where needed, and delivered across New Zealand." },
+  { number: "02", title: "Complete payment", description: "Full payment starts your order. You still approve the final proof before anything is printed." },
+  { number: "03", title: "Upload your details", description: "Send your logo, wording, photos and project notes." },
+  { number: "04", title: "Receive two design options", description: "We create two creative directions for you to compare." },
+  { number: "05", title: "Choose your favourite", description: "Select the direction that best represents your business." },
+  { number: "06", title: "Approve your final proof", description: "Review and approve the final artwork before anything is printed.", highlight: true },
+  { number: "07", title: "We print, finish and deliver NZ-wide", description: "Your order is printed, finished where needed, and delivered across New Zealand." },
 ];
 
 export default function AboutPage() {

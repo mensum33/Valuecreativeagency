@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type { ReactNode } from "react";
 
 interface CTASectionProps {
   heading?: string;
@@ -8,6 +9,29 @@ interface CTASectionProps {
   secondaryLabel?: string;
   secondaryHref?: string;
   dark?: boolean;
+}
+
+function CtaLink({
+  href,
+  className,
+  children,
+}: {
+  href: string;
+  className: string;
+  children: ReactNode;
+}) {
+  if (href.startsWith("mailto:") || href.startsWith("http")) {
+    return (
+      <a href={href} className={className}>
+        {children}
+      </a>
+    );
+  }
+  return (
+    <Link href={href} className={className}>
+      {children}
+    </Link>
+  );
 }
 
 export default function CTASection({
@@ -29,12 +53,15 @@ export default function CTASection({
           {text}
         </p>
         <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Link href={primaryHref} className="btn-primary min-w-[180px]">
+          <CtaLink href={primaryHref} className="btn-primary min-w-[180px]">
             {primaryLabel}
-          </Link>
-          <Link href={secondaryHref} className={dark ? "btn-secondary border-white text-white hover:bg-white/10" : "btn-secondary"}>
+          </CtaLink>
+          <CtaLink
+            href={secondaryHref}
+            className={dark ? "btn-secondary border-white text-white hover:bg-white/10" : "btn-secondary"}
+          >
             {secondaryLabel}
-          </Link>
+          </CtaLink>
         </div>
       </div>
     </section>

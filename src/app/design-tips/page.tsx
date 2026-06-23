@@ -23,7 +23,7 @@ export default function DesignTipsPage() {
 
       <div className="mt-6 flex flex-wrap gap-2">
         {blogCategories.map((cat) => (
-          <span key={cat} className="rounded-full bg-sky/40 px-3 py-1 text-xs font-medium text-navy">
+          <span key={cat} className="rounded-full bg-lightgrey border border-border px-3 py-1 text-xs font-medium text-black">
             {cat}
           </span>
         ))}

@@ -4,7 +4,7 @@ import { createMetadata } from "@/lib/metadata";
 
 export const metadata = createMetadata({
   title: "Checkout",
-  description: "Secure checkout for Value Design & Print packages. Stripe integration coming soon.",
+  description: "Order a fixed-price design and print package from Value Design & Print. Christchurch based, NZ-wide delivery.",
   path: "/checkout",
 });
 

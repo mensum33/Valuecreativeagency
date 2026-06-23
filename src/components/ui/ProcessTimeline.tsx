@@ -1,9 +1,10 @@
 const steps = [
-  { number: "01", title: "Choose your package", description: "Pick a fixed-price package online." },
-  { number: "02", title: "Upload your details", description: "Send your logo, wording, photos and notes." },
-  { number: "03", title: "Receive two design options", description: "We create two design directions so you can choose your favourite." },
-  { number: "04", title: "Approve your proof", description: "You approve the final artwork before production starts.", highlight: true },
-  { number: "05", title: "We print and deliver", description: "We print, finish, assemble where needed, and deliver NZ-wide." },
+  { number: "01", title: "Choose your package", description: "Pick a fixed-price package that matches what you need." },
+  { number: "02", title: "Complete payment", description: "Full payment starts your order and reserves design time. You still approve the final proof before anything is printed." },
+  { number: "03", title: "Upload your details", description: "Send your logo, wording, photos and notes." },
+  { number: "04", title: "Receive two design options", description: "We create two design directions so you can choose your favourite." },
+  { number: "05", title: "Approve your proof", description: "You approve the final artwork before production starts.", highlight: true },
+  { number: "06", title: "We print and deliver", description: "We print, finish, assemble where needed, and deliver NZ-wide." },
 ];
 
 export default function ProcessTimeline() {

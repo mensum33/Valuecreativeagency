@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Breadcrumbs from "@/components/ui/Breadcrumbs";
 import TrustBadges from "@/components/ui/TrustBadges";
-import { CONTACT } from "@/lib/constants";
+import { CONTACT, PAYMENT_TRUST_COPY, mailtoContact } from "@/lib/constants";
 import { createMetadata } from "@/lib/metadata";
 
 export const metadata = createMetadata({
@@ -16,18 +16,18 @@ export default function ContactPage() {
     <div className="container-site section-padding">
       <Breadcrumbs items={[{ label: "Contact" }]} />
       <header className="max-w-2xl">
-        <h1 className="text-3xl md:text-5xl font-display font-semibold text-navy">
+        <h1 className="text-3xl md:text-5xl font-display font-semibold text-black">
           Let&apos;s talk about your project
         </h1>
         <p className="mt-4 text-muted leading-relaxed">
-          Questions about a package? Need help choosing? We&apos;re here to help.
+          Questions about a package, artwork or the design process? Email us — we typically respond within 1–2 business days.
         </p>
       </header>
 
       <div className="mt-12 grid lg:grid-cols-2 gap-10">
         <div className="space-y-6">
           <div className="card-premium p-6">
-            <h2 className="font-display font-semibold text-navy">Contact details</h2>
+            <h2 className="font-display font-semibold text-black">Contact details</h2>
             <ul className="mt-4 space-y-3 text-sm">
               <li>
                 <span className="text-muted">Email: </span>
@@ -45,40 +45,43 @@ export default function ContactPage() {
               ) : null}
               <li>
                 <span className="text-muted">Location: </span>
-                <span className="text-navy font-medium">{CONTACT.location}</span>
+                <span className="text-black font-medium">{CONTACT.location}</span>
               </li>
             </ul>
           </div>
 
           <TrustBadges variant="grid" />
 
+          <p className="text-sm text-muted leading-relaxed">{PAYMENT_TRUST_COPY}</p>
+
           <div className="flex flex-col sm:flex-row gap-3">
+            <a href={mailtoContact()} className="btn-primary text-center">Email us</a>
             <Link href="/upload-artwork" className="btn-secondary text-center">Upload artwork</Link>
-            <Link href="/packages" className="btn-primary text-center">Shop packages</Link>
           </div>
 
-          <p className="text-sm text-muted">
-            We typically respond within 1–2 business days. NZ-wide service with proof before print on every design package.
-          </p>
+          <div className="text-sm text-muted space-y-2">
+            <p>
+              <Link href="/faq" className="text-black underline">FAQ</Link>
+              {" · "}
+              <Link href="/proof-approval-policy" className="text-black underline">Proof approval policy</Link>
+              {" · "}
+              <Link href="/shipping-delivery" className="text-black underline">Shipping &amp; delivery</Link>
+            </p>
+          </div>
         </div>
 
-        <form className="card-premium p-6 md:p-8 space-y-5" aria-label="Contact form">
-          <div>
-            <label htmlFor="contact-name" className="block text-sm font-semibold text-navy mb-1">Name *</label>
-            <input id="contact-name" type="text" required className="w-full rounded-lg border border-border px-4 py-3 text-sm focus:outline focus:outline-2 focus:outline-black" />
-          </div>
-          <div>
-            <label htmlFor="contact-email" className="block text-sm font-semibold text-navy mb-1">Email *</label>
-            <input id="contact-email" type="email" required className="w-full rounded-lg border border-border px-4 py-3 text-sm focus:outline focus:outline-2 focus:outline-black" />
-          </div>
-          <div>
-            <label htmlFor="contact-message" className="block text-sm font-semibold text-navy mb-1">Message *</label>
-            <textarea id="contact-message" rows={5} required className="w-full rounded-lg border border-border px-4 py-3 text-sm focus:outline focus:outline-2 focus:outline-black" />
-          </div>
-          <button type="submit" className="btn-primary w-full sm:w-auto" disabled>
-            Send message (coming soon)
-          </button>
-        </form>
+        <div className="card-premium p-6 md:p-8">
+          <h2 className="font-display font-semibold text-black">Send us an email</h2>
+          <p className="mt-3 text-sm text-muted leading-relaxed">
+            The fastest way to reach us is by email. Include your package choice, business name, delivery address and any project notes.
+          </p>
+          <a href={mailtoContact()} className="btn-primary mt-6 inline-flex w-full sm:w-auto justify-center">
+            Open email — {CONTACT.email}
+          </a>
+          <p className="mt-6 text-xs text-muted">
+            Christchurch based · NZ-wide delivery · Proof before print on every design package
+          </p>
+        </div>
       </div>
     </div>
   );

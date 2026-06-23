@@ -20,14 +20,14 @@ import { getFeaturedWork } from "@/data/recentWork";
 import { industries } from "@/data/industries";
 import { services } from "@/data/services";
 import { faqs, homepageFaqIds, type FAQ } from "@/data/faqs";
-import { HERO_TRUST_LINE } from "@/lib/constants";
+import { HERO_TRUST_LINE, PAYMENT_SUMMARY_LINE } from "@/lib/constants";
 
 const whyChooseUs = [
   { title: "Agency-quality design", desc: "Professional creative direction without agency hourly rates." },
   { title: "Clear package pricing", desc: "Fixed prices shown upfront — no surprise design fees." },
   { title: "Two design options", desc: "Choose between two creative directions on every package." },
   { title: "Proof before print", desc: "Nothing prints until you approve the final artwork." },
-  { title: "16+ years production experience", desc: "Hands-on experience across design, print production and visual media." },
+  { title: "Hands-on production experience", desc: "Led by 16+ years of practical design, print and visual media experience." },
   { title: "Print + finishing", desc: "Lamination, folding, binding and assembly included where listed." },
   { title: "Digital media add-ons", desc: "Social graphics, PDFs and digital-ready files available." },
   { title: "NZ-wide delivery", desc: "Christchurch based, delivered to your door nationwide." },
@@ -73,9 +73,10 @@ export default function HomePage() {
                 </Link>
               </div>
               <p className="mt-6 text-sm text-muted leading-relaxed">{HERO_TRUST_LINE}</p>
+              <p className="mt-2 text-sm text-black/80 leading-relaxed">{PAYMENT_SUMMARY_LINE}</p>
             </div>
 
-            <div className="relative lg:pl-4">
+            <div className="relative lg:pl-4 hidden md:block">
               <HeroVisualBoard />
             </div>
           </div>
@@ -157,7 +158,7 @@ export default function HomePage() {
             <div className="max-w-2xl">
               <h2 className="text-3xl md:text-4xl font-display font-semibold text-black">Recent Work</h2>
               <p className="mt-4 text-muted leading-relaxed">
-                Real design, print and digital media projects for businesses, events and community groups.
+                Design, print and digital media projects for businesses, events and community groups.
               </p>
             </div>
             <Link href="/recent-work" className="btn-secondary shrink-0">
@@ -230,10 +231,10 @@ export default function HomePage() {
         <div className="container-site">
           <div className="max-w-2xl">
             <h2 className="text-3xl md:text-4xl font-display font-semibold text-black">
-              AI-enhanced design for print and digital.
+              Photo enhancement for print and digital.
             </h2>
             <p className="mt-4 text-muted leading-relaxed">
-              We can improve low-quality images, create premium visual concepts, enhance supplied photos and prepare artwork for print and online use.
+              We can improve low-quality images, refine supplied photos and prepare artwork for print and online use — always with human review and final proof approval.
             </p>
           </div>
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -245,7 +246,7 @@ export default function HomePage() {
             ))}
           </div>
           <p className="mt-6 text-sm text-muted">
-            AI enhancement can improve many images, but final proof approval is always required before printing.
+            Image enhancement can improve many photos, but final proof approval is always required before printing.
           </p>
         </div>
       </section>
@@ -259,7 +260,7 @@ export default function HomePage() {
                 Based in Christchurch. Serving businesses across New Zealand.
               </h2>
               <p className="mt-4 text-muted leading-relaxed">
-                Value Design &amp; Print helps small businesses look professional with affordable creative packages. From business cards and flyers to menus, banners, tickets, posters and digital media, we make the process simple and clear.
+                Value Design &amp; Print helps businesses look professional with fixed-price creative packages. From business cards and flyers to menus, banners, tickets, posters and digital media, we make the process simple and clear.
               </p>
               <ExperienceBlock />
               <Link href="/about" className="btn-secondary mt-8 inline-flex">

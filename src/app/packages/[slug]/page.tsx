@@ -17,7 +17,7 @@ import { recentWork } from "@/data/recentWork";
 import { faqs } from "@/data/faqs";
 import { formatPrice } from "@/lib/format";
 import { createMetadata } from "@/lib/metadata";
-import { PAYMENT_TRUST_COPY } from "@/lib/constants";
+import { PAYMENT_TRUST_COPY, PAYMENT_SUMMARY_LINE, mailtoOrder } from "@/lib/constants";
 
 type Props = { params: { slug: string } };
 
@@ -72,12 +72,19 @@ export default function PackageDetailPage({ params }: Props) {
               className="mt-6"
             />
 
-            <div className="mt-8 flex flex-col sm:flex-row gap-4">
-              <Link href={`/checkout?package=${pkg.slug}`} className="btn-primary flex-1 text-center">
-                Buy This Package
+            <p className="mt-4 text-sm text-muted leading-relaxed border-l-2 border-black pl-4">
+              {PAYMENT_SUMMARY_LINE}
+            </p>
+
+            <div className="mt-8 flex flex-col gap-3">
+              <a href={mailtoOrder(pkg.name)} className="btn-primary text-center">
+                Email to order this package
+              </a>
+              <Link href={`/checkout?package=${pkg.slug}`} className="btn-secondary text-center">
+                View order page
               </Link>
-              <Link href="/contact" className="btn-secondary flex-1 text-center">
-                Ask a Question
+              <Link href="/contact" className="btn-ghost text-center text-sm">
+                Ask a question first
               </Link>
             </div>
           </div>
@@ -176,9 +183,11 @@ export default function PackageDetailPage({ params }: Props) {
 
       <CTASection
         heading={`Ready to order ${pkg.name}?`}
-        text="Buy online, upload your details, choose from two design options, and approve your proof before we print."
-        primaryLabel="Buy This Package"
-        primaryHref={`/checkout?package=${pkg.slug}`}
+        text="Email us to order, upload your details, choose from two design options, and approve your proof before we print."
+        primaryLabel="Email to order"
+        primaryHref={mailtoOrder(pkg.name)}
+        secondaryLabel="View all packages"
+        secondaryHref="/packages"
       />
     </>
   );

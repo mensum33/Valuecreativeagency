@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Package } from "@/data/packages";
 import { formatPrice } from "@/lib/format";
+import { PAYMENT_SUMMARY_LINE } from "@/lib/constants";
 import ImageWithFallback from "./ImageWithFallback";
 import TrustBadges from "./TrustBadges";
 
@@ -44,9 +45,10 @@ export default function PackageCard({ pkg, variant = "default" }: PackageCardPro
           {pkg.shortDescription}
         </p>
         <TrustBadges tags={pkg.trustTags} className="mt-4" />
+        <p className="mt-3 text-xs text-muted leading-relaxed">{PAYMENT_SUMMARY_LINE}</p>
         <div className="mt-auto pt-5 flex flex-col sm:flex-row gap-3">
-          <Link href={`/checkout?package=${pkg.slug}`} className="btn-primary text-center flex-1">
-            {pkg.buyButtonLabel}
+          <Link href={`/packages/${pkg.slug}`} className="btn-primary text-center flex-1">
+            Order Package
           </Link>
           <Link href={`/packages/${pkg.slug}`} className="btn-ghost text-center">
             View Details

@@ -6,7 +6,7 @@ import Breadcrumbs from "@/components/ui/Breadcrumbs";
 import TrustBadges from "@/components/ui/TrustBadges";
 import { packages } from "@/data/packages";
 import { formatPrice } from "@/lib/format";
-import { PAYMENT_TRUST_COPY } from "@/lib/constants";
+import { CHECKOUT_NOTICE, CONTACT, PAYMENT_TRUST_COPY, mailtoOrder } from "@/lib/constants";
 
 export default function CheckoutPageClient() {
   const searchParams = useSearchParams();
@@ -16,8 +16,18 @@ export default function CheckoutPageClient() {
   return (
     <div className="container-site section-padding">
       <Breadcrumbs items={[{ label: "Checkout" }]} />
-      <h1 className="text-3xl md:text-4xl font-display font-semibold text-black">Checkout</h1>
-      <p className="mt-2 text-muted">Secure checkout — payment integration prepared for launch.</p>
+      <h1 className="text-3xl md:text-4xl font-display font-semibold text-black">Order your package</h1>
+      <p className="mt-2 text-muted max-w-2xl">{CHECKOUT_NOTICE}</p>
+
+      <div className="mt-6 rounded-2xl border border-border bg-lightgrey p-5 md:p-6 max-w-3xl">
+        <p className="text-sm text-black font-semibold">Prefer to order by email?</p>
+        <p className="mt-2 text-sm text-muted leading-relaxed">
+          Email us your package choice and project details. We will confirm pricing, payment and next steps within 1–2 business days.
+        </p>
+        <a href={mailtoOrder(selectedPackage.name)} className="btn-primary mt-4 inline-flex">
+          Email to order — {selectedPackage.name}
+        </a>
+      </div>
 
       <div className="mt-10 grid lg:grid-cols-3 gap-10">
         <div className="lg:col-span-2 space-y-8">
@@ -32,48 +42,38 @@ export default function CheckoutPageClient() {
                 {formatPrice(selectedPackage.price)}
               </p>
             </div>
-            <p className="mt-4 text-sm text-muted">Includes two design options and proof before print.</p>
+            <p className="mt-4 text-sm text-muted">{PAYMENT_TRUST_COPY}</p>
           </section>
 
-          <section className="card-premium p-6 md:p-8">
+          <section className="card-premium p-6 md:p-8 opacity-75">
             <h2 className="text-lg font-display font-semibold text-black">Customer details</h2>
+            <p className="mt-2 text-sm text-muted">Online checkout fields will appear here when card payment goes live.</p>
             <div className="mt-4 grid sm:grid-cols-2 gap-4">
               {["Full name", "Email", "Phone", "Business name"].map((label) => (
                 <div key={label}>
                   <label className="block text-sm font-semibold text-black mb-1">{label}</label>
-                  <input type="text" className="w-full rounded-lg border border-border px-4 py-3 text-sm" disabled />
+                  <input type="text" className="w-full rounded-lg border border-border px-4 py-3 text-sm bg-lightgrey" disabled />
                 </div>
               ))}
             </div>
           </section>
 
-          <section className="card-premium p-6 md:p-8">
+          <section className="card-premium p-6 md:p-8 opacity-75">
             <h2 className="text-lg font-display font-semibold text-black">Upload details</h2>
             <p className="mt-2 text-sm text-muted">
-              After payment, you&apos;ll upload your logo, text and images. Or{" "}
-              <Link href="/upload-artwork" className="text-black underline hover:no-underline">upload now</Link>.
+              After ordering, upload your logo, text and images on our{" "}
+              <Link href="/upload-artwork" className="text-black underline">upload page</Link> or attach them to your order email.
             </p>
-            <textarea rows={4} className="mt-4 w-full rounded-lg border border-border px-4 py-3 text-sm" placeholder="Project notes..." disabled />
           </section>
 
-          <section className="card-premium p-6 md:p-8">
-            <h2 className="text-lg font-display font-semibold text-black">Delivery address</h2>
-            <div className="mt-4 space-y-4">
-              <input type="text" placeholder="Street address" className="w-full rounded-lg border border-border px-4 py-3 text-sm" disabled />
-              <div className="grid sm:grid-cols-2 gap-4">
-                <input type="text" placeholder="City" className="w-full rounded-lg border border-border px-4 py-3 text-sm" disabled />
-                <input type="text" placeholder="Postcode" className="w-full rounded-lg border border-border px-4 py-3 text-sm" disabled />
-              </div>
-            </div>
-          </section>
-
-          <section className="card-premium p-6 md:p-8 border-dashed">
-            <h2 className="text-lg font-display font-semibold text-black">Payment</h2>
+          <section className="card-premium p-6 md:p-8 border-dashed opacity-75">
+            <h2 className="text-lg font-display font-semibold text-black">Card payment</h2>
             <p className="mt-2 text-sm text-muted">
-              Secure card payment will be processed at checkout. Price is resolved server-side — never from the client.
+              Secure card checkout is being finalised. For now, please order by email at{" "}
+              <a href={`mailto:${CONTACT.email}`} className="text-black underline">{CONTACT.email}</a>.
             </p>
-            <button type="button" className="btn-primary mt-4 opacity-60 cursor-not-allowed" disabled>
-              Pay {formatPrice(selectedPackage.price)} — Coming soon
+            <button type="button" className="btn-primary mt-4 opacity-50 cursor-not-allowed" disabled>
+              Pay online — coming soon
             </button>
           </section>
         </div>
@@ -84,16 +84,21 @@ export default function CheckoutPageClient() {
             <p className="mt-4 text-3xl font-display font-semibold text-black">
               {formatPrice(selectedPackage.price)}
             </p>
-            <p className="mt-2 text-xs text-muted">Delivery calculated at checkout</p>
+            <p className="mt-2 text-xs text-muted">Delivery calculated separately</p>
             <div className="mt-6">
               <TrustBadges
                 variant="grid"
-                tags={["Secure checkout", "Full payment starts your order", "Two design options", "Proof before print", "NZ-wide delivery"]}
+                tags={["Two design options", "Proof before print", "NZ-wide delivery", "1 minor revision included"]}
               />
             </div>
-            <p className="mt-6 text-xs text-muted leading-relaxed">{PAYMENT_TRUST_COPY}</p>
-            <Link href="/packages" className="btn-ghost mt-6 block text-center">
+            <a href={mailtoOrder(selectedPackage.name)} className="btn-primary mt-6 w-full text-center">
+              Email to order
+            </a>
+            <Link href="/packages" className="btn-ghost mt-4 block text-center">
               Continue shopping
+            </Link>
+            <Link href="/contact" className="btn-ghost mt-2 block text-center text-sm">
+              Ask a question first
             </Link>
           </div>
         </aside>
