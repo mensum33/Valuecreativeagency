@@ -1,0 +1,75 @@
+import Link from "next/link";
+import type { Package } from "@/data/packages";
+import { formatPrice } from "@/lib/format";
+import ImageWithFallback from "./ImageWithFallback";
+import TrustBadges from "./TrustBadges";
+
+interface PackageCardProps {
+  pkg: Package;
+  variant?: "default" | "compact" | "hero";
+}
+
+export default function PackageCard({ pkg, variant = "default" }: PackageCardProps) {
+  if (variant === "hero") {
+    return (
+      <div className="card-premium p-4 w-full max-w-[220px]">
+        <div className="relative aspect-[4/3] overflow-hidden rounded-xl mb-3">
+          <ImageWithFallback
+            folder={pkg.imageFolder}
+            alt={pkg.name}
+            fill
+            className="rounded-xl"
+          />
+        </div>
+        <p className="text-xs font-semibold text-navy line-clamp-2 leading-snug">{pkg.name}</p>
+        <p className="mt-1 text-lg font-display font-semibold text-accent">{formatPrice(pkg.price)}</p>
+      </div>
+    );
+  }
+
+  if (variant === "compact") {
+    return (
+      <Link href={`/packages/${pkg.slug}`} className="card-premium group block overflow-hidden">
+        <div className="relative aspect-[4/3] overflow-hidden">
+          <ImageWithFallback folder={pkg.imageFolder} alt={pkg.name} fill />
+        </div>
+        <div className="p-4">
+          <p className="font-semibold text-navy group-hover:text-accent transition-colors line-clamp-2">
+            {pkg.name}
+          </p>
+          <p className="mt-1 text-lg font-display text-accent">{formatPrice(pkg.price)}</p>
+        </div>
+      </Link>
+    );
+  }
+
+  return (
+    <article className="card-premium group flex flex-col overflow-hidden">
+      <Link href={`/packages/${pkg.slug}`} className="relative aspect-[4/3] overflow-hidden block">
+        <ImageWithFallback folder={pkg.imageFolder} alt={pkg.name} fill />
+        <div className="absolute top-3 right-3 rounded-full bg-white/95 px-3 py-1 text-sm font-bold text-accent shadow-sm">
+          {formatPrice(pkg.price)}
+        </div>
+      </Link>
+      <div className="flex flex-1 flex-col p-5 md:p-6">
+        <Link href={`/packages/${pkg.slug}`}>
+          <h3 className="text-lg font-display font-semibold text-navy group-hover:text-accent transition-colors">
+            {pkg.name}
+          </h3>
+        </Link>
+        <p className="mt-2 text-sm text-muted leading-relaxed line-clamp-2">
+          {pkg.shortDescription}
+        </p>
+        <TrustBadges tags={pkg.trustTags} className="mt-4" />
+        <div className="mt-auto pt-5 flex flex-col sm:flex-row gap-3">
+          <Link href={`/checkout?package=${pkg.slug}`} className="btn-primary text-center flex-1">
+            {pkg.buyButtonLabel}
+          </Link>
+          <Link href={`/packages/${pkg.slug}`} className="btn-ghost text-center">
+            View Details
+          </Link>
+        </div>
+      </div>
+    </article>
+  );
+}
