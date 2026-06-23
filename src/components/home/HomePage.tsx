@@ -265,6 +265,9 @@ export default function HomePage() {
               <p className="mt-4 text-muted leading-relaxed">
                 Value Design &amp; Print helps small businesses look professional with affordable creative packages. From business cards and flyers to menus, banners, tickets, posters and digital media, we make the process simple and clear.
               </p>
+              <Link href="/about" className="btn-secondary mt-6 inline-flex">
+                About Value Design &amp; Print
+              </Link>
             </div>
             <div className="grid grid-cols-2 gap-4">
               {["workspace", "printer", "finished-print", "behind-scenes"].map((label) => (
