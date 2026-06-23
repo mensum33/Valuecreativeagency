@@ -56,15 +56,15 @@ function ProofApprovedCard() {
       initial={{ opacity: 0, y: 12 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: 0.5 }}
-      className="absolute top-[52%] right-[2%] z-50 rounded-xl border border-trust/30 bg-white/95 px-4 py-3 shadow-premium backdrop-blur-sm"
+      className="absolute top-[52%] right-[2%] z-50 rounded-lg border border-border bg-white px-4 py-3 shadow-premium"
     >
       <div className="flex items-center gap-2">
-        <span className="flex h-7 w-7 items-center justify-center rounded-full bg-trust/15 text-trust">
-          <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+        <span className="flex h-6 w-6 items-center justify-center rounded-full border border-trust/40 text-trust">
+          <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
           </svg>
         </span>
-        <span className="text-xs font-semibold text-navy">Proof Approved</span>
+        <span className="text-xs font-semibold text-black">Proof Approved</span>
       </div>
     </motion.div>
   );
@@ -72,15 +72,12 @@ function ProofApprovedCard() {
 
 export default function HeroVisualBoard() {
   return (
-    <div className="relative w-full aspect-[4/5] sm:aspect-[5/6] lg:aspect-square max-h-[560px]">
-      {/* Soft background shape */}
-      <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-br from-sky/50 via-white to-ivory border border-border shadow-premium overflow-hidden crop-marks" aria-hidden="true" />
+    <div className="relative w-full aspect-[4/5] sm:aspect-[5/6] lg:aspect-square max-h-[520px]">
+      <div className="absolute inset-0 rounded-2xl bg-white border border-border shadow-premium overflow-hidden crop-marks" aria-hidden="true" />
 
-      {/* Paper layer accents */}
-      <div className="absolute top-6 right-6 h-24 w-20 rounded-lg bg-white/60 border border-border/80 rotate-12 shadow-sm" aria-hidden="true" />
-      <div className="absolute bottom-10 left-10 h-16 w-28 rounded-lg bg-white/40 border border-dashed border-border rotate-[-8deg]" aria-hidden="true" />
+      <div className="absolute top-6 right-6 h-24 w-20 rounded-lg bg-lightgrey border border-border rotate-12" aria-hidden="true" />
+      <div className="absolute bottom-10 left-10 h-16 w-28 rounded-lg bg-offwhite border border-dashed border-border rotate-[-8deg]" aria-hidden="true" />
 
-      {/* Capability labels */}
       <div className="absolute top-5 left-5 right-5 flex flex-wrap gap-2 z-50">
         {capabilityLabels.map((label, i) => (
           <motion.span
@@ -88,14 +85,13 @@ export default function HeroVisualBoard() {
             initial={{ opacity: 0, x: -8 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.3 + i * 0.08 }}
-            className="rounded-full bg-navy/90 px-3 py-1 text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-white"
+            className="rounded-full bg-black px-3 py-1 text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-white"
           >
             {label}
           </motion.span>
         ))}
       </div>
 
-      {/* Floating mockup cards */}
       {boardItems.map((item) => (
         <motion.div
           key={item.id}
@@ -105,11 +101,11 @@ export default function HeroVisualBoard() {
           className={`absolute ${item.className}`}
         >
           <motion.div
-            animate={{ y: [0, -6, 0] }}
+            animate={{ y: [0, -5, 0] }}
             transition={{ duration: 5 + item.delay * 2, repeat: Infinity, ease: "easeInOut" }}
-            className="rounded-xl border border-border bg-white p-1.5 shadow-card-hover"
+            className="rounded-lg border border-border bg-white p-1.5 shadow-card"
           >
-            <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-md img-bw">
               <ImageWithFallback folder={item.folder} alt={item.label} fill sizes="(max-width: 768px) 40vw, 200px" />
             </div>
             <p className="mt-1.5 px-1 text-[10px] font-medium text-muted truncate">{item.label}</p>
@@ -119,7 +115,6 @@ export default function HeroVisualBoard() {
 
       <ProofApprovedCard />
 
-      {/* Table tent silhouette */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -127,7 +122,7 @@ export default function HeroVisualBoard() {
         className="absolute bottom-[6%] left-[38%] w-[22%] z-10"
         aria-hidden="true"
       >
-        <div className="h-16 bg-gradient-to-b from-white to-border/30 border border-border rounded-t-lg shadow-sm" style={{ clipPath: "polygon(10% 0%, 90% 0%, 100% 100%, 0% 100%)" }} />
+        <div className="h-16 bg-gradient-to-b from-white to-lightgrey border border-border rounded-t-lg" style={{ clipPath: "polygon(10% 0%, 90% 0%, 100% 100%, 0% 100%)" }} />
         <p className="text-center text-[9px] text-muted mt-1">Table tent</p>
       </motion.div>
     </div>

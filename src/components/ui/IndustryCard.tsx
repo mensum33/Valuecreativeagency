@@ -15,9 +15,9 @@ export default function IndustryCard({ industry }: IndustryCardProps) {
 
   return (
     <article className="card-premium group overflow-hidden">
-      <Link href={`/industries/${industry.slug}`} className="relative block aspect-[16/10] overflow-hidden">
+      <Link href={`/industries/${industry.slug}`} className="relative block aspect-[16/10] overflow-hidden img-bw">
         <ImageWithFallback folder={industry.imageFolder} alt={industry.name} fill />
-        <div className="absolute inset-0 bg-gradient-to-t from-navy/80 via-navy/20 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
         <div className="absolute bottom-0 left-0 right-0 p-5 md:p-6">
           <h3 className="text-xl font-display font-semibold text-white">{industry.name}</h3>
           <p className="mt-1 text-sm text-white/80 line-clamp-2">{industry.shortDescription}</p>
@@ -29,7 +29,7 @@ export default function IndustryCard({ industry }: IndustryCardProps) {
             <li key={pkg.slug}>
               <Link
                 href={`/packages/${pkg.slug}`}
-                className="text-sm text-muted hover:text-accent transition-colors"
+                className="text-sm text-muted hover:text-black hover:underline transition-colors"
               >
                 {pkg.name}
               </Link>
@@ -37,7 +37,7 @@ export default function IndustryCard({ industry }: IndustryCardProps) {
           ))}
         </ul>
         <Link href={`/industries/${industry.slug}`} className="btn-secondary mt-4 w-full text-center text-sm py-2.5">
-          View packages
+          View Packages
         </Link>
       </div>
     </article>

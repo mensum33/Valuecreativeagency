@@ -30,7 +30,7 @@ export default function RecentWorkPageClient() {
             type="button"
             onClick={() => setFilter(ind)}
             className={`rounded-full px-4 py-2 text-sm font-medium transition-colors ${
-              filter === ind ? "bg-accent text-white" : "bg-white border border-border text-muted hover:text-navy"
+              filter === ind ? "bg-black text-white" : "bg-white border border-border text-muted hover:text-black"
             }`}
           >
             {ind}

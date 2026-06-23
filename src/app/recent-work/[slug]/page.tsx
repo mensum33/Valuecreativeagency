@@ -43,8 +43,8 @@ export default function RecentWorkDetailPage({ params }: Props) {
         />
 
         <header className="max-w-3xl">
-          <p className="text-sm font-semibold uppercase tracking-wider text-accent">{work.industry}</p>
-          <h1 className="mt-2 text-3xl md:text-5xl font-display font-semibold text-navy">{work.title}</h1>
+          <p className="text-sm font-semibold uppercase tracking-wider text-muted">{work.industry}</p>
+          <h1 className="mt-2 text-3xl md:text-5xl font-display font-semibold text-black">{work.title}</h1>
           <p className="mt-4 text-lg text-muted leading-relaxed">{work.summary}</p>
           {work.clientWebsite && (
             <a
@@ -80,7 +80,7 @@ export default function RecentWorkDetailPage({ params }: Props) {
             <ul className="mt-4 space-y-2">
               {work.deliverables.map((d) => (
                 <li key={d} className="flex items-start gap-2 text-sm text-rich">
-                  <span className="text-trust" aria-hidden="true">✓</span>
+                  <span className="text-black" aria-hidden="true">✓</span>
                   {d}
                 </li>
               ))}
@@ -88,8 +88,8 @@ export default function RecentWorkDetailPage({ params }: Props) {
           </section>
         </div>
 
-        <section className="mt-12 card-premium p-6 md:p-8 bg-sky/10">
-          <h2 className="text-2xl font-display font-semibold text-navy">Outcome</h2>
+        <section className="mt-12 card-premium p-6 md:p-8 bg-lightgrey">
+          <h2 className="text-2xl font-display font-semibold text-black">Outcome</h2>
           <p className="mt-4 text-muted leading-relaxed">{work.outcome}</p>
         </section>
 

@@ -19,8 +19,8 @@ export default function ProcessTimeline() {
             <div
               className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-full text-sm font-bold z-10 ${
                 step.highlight
-                  ? "bg-trust text-white ring-4 ring-trust/20 scale-110"
-                  : "bg-navy text-white"
+                  ? "bg-black text-white ring-4 ring-black/10"
+                  : "bg-charcoal text-white"
               }`}
             >
               {step.number}
@@ -28,16 +28,16 @@ export default function ProcessTimeline() {
             <div
               className={`flex-1 p-5 md:p-6 rounded-2xl border transition-all duration-300 ${
                 step.highlight
-                  ? "bg-trust/5 border-trust/30 shadow-card-hover"
+                  ? "bg-lightgrey border-black/20 shadow-card-hover"
                   : "card-premium"
               }`}
             >
               {step.highlight && (
-                <p className="text-xs font-semibold uppercase tracking-wider text-trust mb-2">
+                <p className="text-xs font-semibold uppercase tracking-wider text-black mb-2">
                   Main trust promise
                 </p>
               )}
-              <h3 className={`font-display font-semibold text-navy ${step.highlight ? "text-xl md:text-2xl" : "text-lg"}`}>
+              <h3 className={`font-display font-semibold text-black ${step.highlight ? "text-xl md:text-2xl" : "text-lg"}`}>
                 {step.title}
               </h3>
               <p className="mt-2 text-sm text-muted leading-relaxed">{step.description}</p>

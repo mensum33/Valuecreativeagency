@@ -73,8 +73,22 @@ export const faqs: FAQ[] = [
     id: "custom-work",
     question: "Can I order custom work?",
     answer:
-      "Yes. While our packages cover the most common needs, we can discuss custom projects. Contact us with your requirements and we'll advise on scope and pricing.",
+      "Yes. Custom work can be requested if your project does not fit one of the listed packages. Contact us with your requirements and we'll advise on scope and pricing.",
     group: "Ordering",
+  },
+  {
+    id: "payment-before-design",
+    question: "When does design work start?",
+    answer:
+      "Design work starts after full payment is received.",
+    group: "Payments",
+  },
+  {
+    id: "pay-before-approval",
+    question: "Do I pay before design approval?",
+    answer:
+      "Yes. Full payment is required to start the order. You still approve the final proof before printing.",
+    group: "Payments",
   },
   {
     id: "payment-methods",
@@ -136,4 +150,6 @@ export const homepageFaqIds = [
   "what-not-included",
   "low-quality-images",
   "custom-work",
+  "payment-before-design",
+  "pay-before-approval",
 ];

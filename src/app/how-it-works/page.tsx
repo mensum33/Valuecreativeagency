@@ -54,7 +54,7 @@ export default function HowItWorksPage() {
           <div className="mt-6 grid gap-4 sm:grid-cols-2">
             {detailedSteps.map((s) => (
               <div key={s.step} className="card-premium p-5">
-                <span className="text-xs font-bold text-accent">STEP {s.step}</span>
+                <span className="text-xs font-bold text-muted">STEP {s.step}</span>
                 <h3 className="mt-1 font-display font-semibold text-navy">{s.title}</h3>
                 <p className="mt-2 text-sm text-muted">{s.desc}</p>
               </div>
@@ -62,7 +62,7 @@ export default function HowItWorksPage() {
           </div>
         </section>
 
-        <section className="mt-16 card-premium p-6 md:p-8 bg-navy text-white">
+        <section className="mt-16 card-premium p-6 md:p-8 bg-black text-white">
           <h2 className="text-2xl font-display font-semibold text-white">Proof approval workflow</h2>
           <div className="mt-6">
             <ProofWorkflow />
@@ -70,7 +70,7 @@ export default function HowItWorksPage() {
           <p className="mt-6 text-white/70 text-sm leading-relaxed">
             Nothing is printed until you explicitly approve the final proof. Please check spelling, contact details, prices, dates, QR codes and colours carefully.
           </p>
-          <Link href="/proof-approval-policy" className="text-accent font-semibold text-sm mt-4 inline-block hover:underline">
+          <Link href="/proof-approval-policy" className="text-white font-semibold text-sm mt-4 inline-block hover:underline">
             Read full proof approval policy
           </Link>
         </section>

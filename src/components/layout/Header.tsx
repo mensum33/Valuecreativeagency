@@ -11,12 +11,12 @@ export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border/60 bg-ivory/95 backdrop-blur-md">
+    <header className="sticky top-0 z-50 border-b border-border bg-white/95 backdrop-blur-md">
       <div className="container-site">
         <div className="flex h-16 md:h-[72px] items-center justify-between gap-4">
-          <Link href="/" className="group flex items-center gap-2 shrink-0" aria-label="Value Design & Print — Home">
-            <span className="font-display text-lg md:text-xl font-semibold text-navy tracking-tight">
-              Value Design<span className="text-accent">&amp;</span>Print
+          <Link href="/" className="group flex items-center shrink-0" aria-label="Value Design & Print — Home">
+            <span className="font-display text-lg md:text-xl font-semibold text-black tracking-tight">
+              Value Design &amp; Print
             </span>
           </Link>
 
@@ -25,7 +25,7 @@ export default function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="rounded-lg px-3 py-2 text-sm font-medium text-muted hover:text-navy hover:bg-white/80 transition-colors"
+                className="rounded-lg px-3 py-2 text-sm font-medium text-muted hover:text-black hover:bg-lightgrey transition-colors"
               >
                 {link.label}
               </Link>
@@ -33,7 +33,7 @@ export default function Header() {
           </nav>
 
           <div className="hidden lg:flex items-center gap-4">
-            <Link href="/upload-artwork" className="text-sm font-semibold text-navy hover:text-accent transition-colors whitespace-nowrap">
+            <Link href="/upload-artwork" className="text-sm font-semibold text-black hover:underline whitespace-nowrap">
               Upload Artwork
             </Link>
             <Link href="/packages" className="btn-primary py-2.5 px-5 text-sm whitespace-nowrap">
@@ -62,7 +62,7 @@ export default function Header() {
       </div>
 
       <div
-        className={`lg:hidden border-t border-border bg-ivory overflow-hidden transition-all duration-300 ease-in-out ${
+        className={`lg:hidden border-t border-border bg-white overflow-hidden transition-all duration-300 ease-in-out ${
           mobileOpen ? "max-h-[600px] opacity-100" : "max-h-0 opacity-0"
         }`}
       >
@@ -71,7 +71,7 @@ export default function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className="rounded-lg px-4 py-3 text-base font-medium text-navy hover:bg-white"
+              className="rounded-lg px-4 py-3 text-base font-medium text-black hover:bg-lightgrey"
               onClick={() => setMobileOpen(false)}
             >
               {link.label}

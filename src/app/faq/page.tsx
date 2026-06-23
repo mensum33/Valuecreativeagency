@@ -17,8 +17,8 @@ export default function FAQPage() {
       <div className="container-site section-padding">
         <Breadcrumbs items={[{ label: "FAQ" }]} />
         <header className="max-w-2xl">
-          <h1 className="text-3xl md:text-5xl font-display font-semibold text-navy">
-            Frequently asked questions
+          <h1 className="text-3xl md:text-5xl font-display font-semibold text-black">
+            Questions before you order?
           </h1>
           <p className="mt-4 text-muted leading-relaxed">
             Clear answers about our packages, design process, printing and delivery.

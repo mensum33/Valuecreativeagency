@@ -22,7 +22,7 @@ export default function WhatCustomersExpect() {
     <section className="section-padding bg-white border-y border-border">
       <div className="container-site">
         <div className="max-w-2xl mx-auto text-center mb-10 md:mb-14">
-          <h2 className="text-3xl md:text-4xl font-display font-semibold text-navy">
+          <h2 className="text-3xl md:text-4xl font-display font-semibold text-black">
             What customers can expect
           </h2>
           <p className="mt-4 text-muted leading-relaxed">
@@ -32,8 +32,8 @@ export default function WhatCustomersExpect() {
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {expectations.map((item) => (
             <article key={item.title} className="card-premium p-6 md:p-7">
-              <div className="h-px w-8 bg-accent mb-5" aria-hidden="true" />
-              <h3 className="font-display text-lg font-semibold text-navy">{item.title}</h3>
+              <div className="h-px w-8 bg-black mb-5" aria-hidden="true" />
+              <h3 className="font-display text-lg font-semibold text-black">{item.title}</h3>
               <p className="mt-3 text-sm text-muted leading-relaxed">{item.description}</p>
             </article>
           ))}

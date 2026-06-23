@@ -17,6 +17,7 @@ import { recentWork } from "@/data/recentWork";
 import { faqs } from "@/data/faqs";
 import { formatPrice } from "@/lib/format";
 import { createMetadata } from "@/lib/metadata";
+import { PAYMENT_TRUST_COPY } from "@/lib/constants";
 
 type Props = { params: { slug: string } };
 
@@ -61,13 +62,13 @@ export default function PackageDetailPage({ params }: Props) {
           <ImageGallery folder={pkg.imageFolder} alt={pkg.name} />
 
           <div>
-            <p className="text-sm font-semibold uppercase tracking-wider text-accent">{pkg.category}</p>
-            <h1 className="mt-2 text-3xl md:text-4xl font-display font-semibold text-navy">{pkg.name}</h1>
-            <p className="mt-3 text-3xl font-display font-semibold text-accent">{formatPrice(pkg.price)}</p>
+            <p className="text-sm font-semibold uppercase tracking-wider text-muted">{pkg.category}</p>
+            <h1 className="mt-2 text-3xl md:text-4xl font-display font-semibold text-black">{pkg.name}</h1>
+            <p className="mt-3 text-3xl font-display font-semibold text-black">{formatPrice(pkg.price)}</p>
             <p className="mt-4 text-muted leading-relaxed">{pkg.shortDescription}</p>
 
             <TrustBadges
-              tags={["2 design options included", "1 minor revision", "Proof before print", "NZ-wide delivery"]}
+              tags={["2 design options included", "1 minor revision included", "Proof before print", "NZ-wide delivery"]}
               className="mt-6"
             />
 
@@ -88,17 +89,20 @@ export default function PackageDetailPage({ params }: Props) {
             <ul className="mt-4 grid gap-2 sm:grid-cols-2">
               {pkg.includedItems.map((item) => (
                 <li key={item} className="flex items-start gap-2 text-sm text-rich">
-                  <span className="text-trust mt-0.5" aria-hidden="true">✓</span>
+                  <span className="text-black mt-0.5" aria-hidden="true">✓</span>
                   {item}
                 </li>
               ))}
             </ul>
           </section>
 
-          <section className="card-premium p-6 md:p-8 bg-sky/10 border-sky/30">
-            <h2 className="text-2xl font-display font-semibold text-navy">How the design process works</h2>
+          <section className="card-premium p-6 md:p-8 bg-lightgrey">
+            <h2 className="text-2xl font-display font-semibold text-black">How the design process works</h2>
             <p className="mt-4 text-muted leading-relaxed">
               After ordering, upload your logo, wording, images and notes. We create two design options. You choose one direction, request one minor revision if needed, and approve the final proof before printing.
+            </p>
+            <p className="mt-4 text-sm text-muted leading-relaxed border-t border-border pt-4">
+              {PAYMENT_TRUST_COPY}
             </p>
           </section>
 
@@ -107,7 +111,7 @@ export default function PackageDetailPage({ params }: Props) {
             <ul className="mt-4 grid gap-2 sm:grid-cols-2">
               {customerRequirements.map((item) => (
                 <li key={item} className="flex items-start gap-2 text-sm text-rich">
-                  <span className="text-accent mt-0.5" aria-hidden="true">→</span>
+                  <span className="text-black mt-0.5" aria-hidden="true">→</span>
                   {item}
                 </li>
               ))}
@@ -141,7 +145,7 @@ export default function PackageDetailPage({ params }: Props) {
                   <div className="flex justify-between items-start gap-2">
                     <p className="font-semibold text-navy">{addon.name}</p>
                     {addon.price > 0 && (
-                      <p className="text-accent font-semibold">+{formatPrice(addon.price)}</p>
+                      <p className="text-black font-semibold">+{formatPrice(addon.price)}</p>
                     )}
                   </div>
                   <p className="mt-1 text-xs text-muted">{addon.note}</p>

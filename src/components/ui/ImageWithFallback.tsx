@@ -32,7 +32,7 @@ export default function ImageWithFallback({
   if (failed || index >= candidates.length) {
     return (
       <div
-        className={`flex items-center justify-center bg-gradient-to-br from-border/40 via-ivory to-sky/30 ${className}`}
+        className={`flex items-center justify-center bg-gradient-to-br from-lightgrey via-offwhite to-white ${className}`}
         role="img"
         aria-label={alt}
       >

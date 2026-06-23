@@ -5,6 +5,7 @@ import HeroVisualBoard from "@/components/home/HeroVisualBoard";
 import TrustStrip from "@/components/home/TrustStrip";
 import PackageReassurance from "@/components/home/PackageReassurance";
 import WhatCustomersExpect from "@/components/home/WhatCustomersExpect";
+import ExperienceBlock from "@/components/ui/ExperienceBlock";
 import PackageGrid from "@/components/ui/PackageGrid";
 import ProcessTimeline from "@/components/ui/ProcessTimeline";
 import ProofWorkflow from "@/components/ui/ProofWorkflow";
@@ -26,6 +27,7 @@ const whyChooseUs = [
   { title: "Clear package pricing", desc: "Fixed prices shown upfront — no surprise design fees." },
   { title: "Two design options", desc: "Choose between two creative directions on every package." },
   { title: "Proof before print", desc: "Nothing prints until you approve the final artwork." },
+  { title: "16+ years production experience", desc: "Hands-on experience across design, print production and visual media." },
   { title: "Print + finishing", desc: "Lamination, folding, binding and assembly included where listed." },
   { title: "Digital media add-ons", desc: "Social graphics, PDFs and digital-ready files available." },
   { title: "NZ-wide delivery", desc: "Christchurch based, delivered to your door nationwide." },
@@ -46,25 +48,21 @@ const homepageFaqs: FAQ[] = homepageFaqIds
 export default function HomePage() {
   return (
     <>
-      {/* Section 1: Premium agency hero */}
-      <section className="relative overflow-hidden border-b border-border bg-paper">
-        <div
-          className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-sky/30 to-transparent pointer-events-none"
-          aria-hidden="true"
-        />
+      {/* Section 1: Premium trust-first hero */}
+      <section className="relative overflow-hidden border-b border-border bg-offwhite">
         <div className="container-site section-padding pb-12 md:pb-20">
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             <div>
-              <p className="text-sm font-semibold uppercase tracking-widest text-accent mb-4">
+              <p className="text-sm font-semibold uppercase tracking-widest text-muted mb-4">
                 Christchurch • NZ-wide
               </p>
-              <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-display font-normal text-navy leading-[1.08]">
+              <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-display font-normal text-black leading-[1.08]">
                 Big-Agency Style.
                 <br />
                 Small-Business Pricing.
               </h1>
               <p className="mt-6 text-base md:text-lg text-muted leading-relaxed max-w-xl">
-                Creative agency quality, packaged for small businesses. Choose a fixed-price design, print or digital media package, approve your proof, and receive ready-to-use material delivered NZ-wide.
+                Creative agency quality, packaged for small businesses. We design, print, finish and prepare digital media that helps New Zealand businesses look professional online and in print.
               </p>
               <div className="mt-8 flex flex-col sm:flex-row gap-4">
                 <Link href="/packages" className="btn-primary text-center">
@@ -84,20 +82,19 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Section 2: Trust strip */}
       <TrustStrip />
 
       {/* Section 3: Shop fixed-price packages */}
-      <section id="packages" className="section-padding">
+      <section id="packages" className="section-padding bg-white">
         <div className="container-site">
           <div className="max-w-3xl">
-            <h2 className="text-3xl md:text-4xl font-display font-semibold text-navy">
+            <h2 className="text-3xl md:text-4xl font-display font-semibold text-black">
               Shop Fixed-Price Packages
             </h2>
             <p className="mt-4 text-muted leading-relaxed">
               Clear prices, two design options, proof approval and NZ-wide delivery.
             </p>
-            <p className="mt-4 text-sm text-navy/80 leading-relaxed border-l-2 border-sky pl-4">
+            <p className="mt-4 text-sm text-black/80 leading-relaxed border-l-2 border-black pl-4">
               Every package includes two design options and proof approval before print — so you know exactly what you&apos;re getting before production starts.
             </p>
           </div>
@@ -112,14 +109,13 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Section 4: Package buying reassurance */}
       <PackageReassurance />
 
       {/* Section 5: How it works */}
       <section className="section-padding">
         <div className="container-site">
           <div className="max-w-2xl mb-10 md:mb-14">
-            <h2 className="text-3xl md:text-4xl font-display font-semibold text-navy">
+            <h2 className="text-3xl md:text-4xl font-display font-semibold text-black">
               Simple, clear and approved before print.
             </h2>
           </div>
@@ -133,7 +129,7 @@ export default function HomePage() {
       </section>
 
       {/* Section 6: Proof before print */}
-      <section className="section-padding bg-navy text-white">
+      <section className="section-padding bg-black text-white">
         <div className="container-site">
           <div className="max-w-2xl">
             <h2 className="text-3xl md:text-4xl font-display font-semibold text-white">
@@ -147,7 +143,7 @@ export default function HomePage() {
             <ProofWorkflow />
           </div>
           <div className="mt-8">
-            <Link href="/proof-approval-policy" className="text-sm font-semibold text-accent hover:underline">
+            <Link href="/proof-approval-policy" className="text-sm font-semibold text-white hover:underline">
               Read our proof approval policy
             </Link>
           </div>
@@ -155,11 +151,11 @@ export default function HomePage() {
       </section>
 
       {/* Section 7: Recent work */}
-      <section className="section-padding">
+      <section className="section-padding bg-white">
         <div className="container-site">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10 md:mb-14">
             <div className="max-w-2xl">
-              <h2 className="text-3xl md:text-4xl font-display font-semibold text-navy">Recent Work</h2>
+              <h2 className="text-3xl md:text-4xl font-display font-semibold text-black">Recent Work</h2>
               <p className="mt-4 text-muted leading-relaxed">
                 Real design, print and digital media projects for businesses, events and community groups.
               </p>
@@ -173,10 +169,10 @@ export default function HomePage() {
       </section>
 
       {/* Section 8: Packages by business type */}
-      <section className="section-padding bg-white border-y border-border">
+      <section className="section-padding border-y border-border">
         <div className="container-site">
           <div className="max-w-2xl">
-            <h2 className="text-3xl md:text-4xl font-display font-semibold text-navy">
+            <h2 className="text-3xl md:text-4xl font-display font-semibold text-black">
               Packages built around your business.
             </h2>
             <p className="mt-4 text-muted leading-relaxed">
@@ -192,21 +188,21 @@ export default function HomePage() {
       </section>
 
       {/* Section 9: Why small businesses choose us */}
-      <section className="section-padding">
+      <section className="section-padding bg-white">
         <div className="container-site">
           <div className="max-w-2xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-display font-semibold text-navy text-balance">
+            <h2 className="text-3xl md:text-4xl font-display font-semibold text-black text-balance">
               Professional design should not be only for big companies.
             </h2>
             <p className="mt-4 text-muted leading-relaxed">
               We help small businesses look polished with fixed-price creative packages for business cards, flyers, menus, banners, tickets, digital media and more.
             </p>
           </div>
-          <div className="mt-10 md:mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-10 md:mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {whyChooseUs.map((item) => (
               <div key={item.title} className="card-premium p-5 md:p-6">
-                <div className="h-px w-6 bg-accent mb-4" aria-hidden="true" />
-                <h3 className="font-display font-semibold text-navy">{item.title}</h3>
+                <div className="h-px w-6 bg-black mb-4" aria-hidden="true" />
+                <h3 className="font-display font-semibold text-black">{item.title}</h3>
                 <p className="mt-2 text-sm text-muted leading-relaxed">{item.desc}</p>
               </div>
             ))}
@@ -215,9 +211,9 @@ export default function HomePage() {
       </section>
 
       {/* Section 10: Services overview */}
-      <section className="section-padding bg-white border-y border-border">
+      <section className="section-padding border-y border-border">
         <div className="container-site">
-          <h2 className="text-3xl md:text-4xl font-display font-semibold text-navy">More than printing.</h2>
+          <h2 className="text-3xl md:text-4xl font-display font-semibold text-black">More than printing.</h2>
           <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {services.map((s) => (
               <ServiceCard key={s.id} service={s} />
@@ -230,10 +226,10 @@ export default function HomePage() {
       </section>
 
       {/* Section 11: AI-enhanced design */}
-      <section className="section-padding bg-sky/20 border-y border-border">
+      <section className="section-padding bg-white">
         <div className="container-site">
           <div className="max-w-2xl">
-            <h2 className="text-3xl md:text-4xl font-display font-semibold text-navy">
+            <h2 className="text-3xl md:text-4xl font-display font-semibold text-black">
               AI-enhanced design for print and digital.
             </h2>
             <p className="mt-4 text-muted leading-relaxed">
@@ -243,7 +239,7 @@ export default function HomePage() {
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {aiCards.map((card) => (
               <div key={card.title} className="card-premium p-5 md:p-6">
-                <h3 className="font-display font-semibold text-navy">{card.title}</h3>
+                <h3 className="font-display font-semibold text-black">{card.title}</h3>
                 <p className="mt-2 text-sm text-muted leading-relaxed">{card.desc}</p>
               </div>
             ))}
@@ -255,23 +251,24 @@ export default function HomePage() {
       </section>
 
       {/* Section 12: Studio trust */}
-      <section className="section-padding">
+      <section className="section-padding border-y border-border">
         <div className="container-site">
-          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
             <div>
-              <h2 className="text-3xl md:text-4xl font-display font-semibold text-navy">
+              <h2 className="text-3xl md:text-4xl font-display font-semibold text-black">
                 Based in Christchurch. Serving businesses across New Zealand.
               </h2>
               <p className="mt-4 text-muted leading-relaxed">
                 Value Design &amp; Print helps small businesses look professional with affordable creative packages. From business cards and flyers to menus, banners, tickets, posters and digital media, we make the process simple and clear.
               </p>
-              <Link href="/about" className="btn-secondary mt-6 inline-flex">
+              <ExperienceBlock />
+              <Link href="/about" className="btn-secondary mt-8 inline-flex">
                 About Value Design &amp; Print
               </Link>
             </div>
             <div className="grid grid-cols-2 gap-4">
               {["workspace", "printer", "finished-print", "behind-scenes"].map((label) => (
-                <div key={label} className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-border shadow-card">
+                <div key={label} className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-border img-bw">
                   <ImageWithFallback folder="studio" alt={`Studio — ${label}`} fill />
                 </div>
               ))}
@@ -280,14 +277,13 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Section 13: What customers can expect */}
       <WhatCustomersExpect />
 
       {/* Section 14: FAQ */}
-      <section className="section-padding">
+      <section className="section-padding bg-white">
         <div className="container-site max-w-3xl">
-          <h2 className="text-3xl md:text-4xl font-display font-semibold text-navy text-center mb-10">
-            Frequently asked questions
+          <h2 className="text-3xl md:text-4xl font-display font-semibold text-black text-center mb-10">
+            Questions before you order?
           </h2>
           <FAQAccordion items={homepageFaqs} />
           <div className="mt-8 text-center">
@@ -296,7 +292,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Section 15: Final CTA */}
       <CTASection />
     </>
   );

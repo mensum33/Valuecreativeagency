@@ -57,8 +57,8 @@ export default function PackagesPageClient() {
                   onClick={() => setCategory(cat)}
                   className={`rounded-lg px-3 py-2 text-sm font-medium transition-colors w-full text-left ${
                     category === cat
-                      ? "bg-accent text-white"
-                      : "text-muted hover:bg-white hover:text-navy"
+                      ? "bg-black text-white"
+                      : "text-muted hover:bg-lightgrey hover:text-black"
                   }`}
                 >
                   {cat}
@@ -81,7 +81,7 @@ export default function PackagesPageClient() {
               <select
                 value={sort}
                 onChange={(e) => setSort(e.target.value as SortOption)}
-                className="rounded-lg border border-border bg-white px-3 py-2 text-navy focus:outline focus:outline-2 focus:outline-accent"
+                className="rounded-lg border border-border bg-white px-3 py-2 text-black focus:outline focus:outline-2 focus:outline-black"
               >
                 <option value="featured">Featured</option>
                 <option value="price-asc">Price low to high</option>

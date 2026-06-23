@@ -20,9 +20,9 @@ export default function CTASection({
   dark = false,
 }: CTASectionProps) {
   return (
-    <section className={`section-padding ${dark ? "bg-navy" : "bg-sky/30"}`}>
+    <section className={`section-padding ${dark ? "bg-charcoal" : "bg-lightgrey border-t border-border"}`}>
       <div className="container-site text-center max-w-3xl mx-auto">
-        <h2 className={`text-3xl md:text-4xl font-display font-semibold text-balance ${dark ? "text-white" : "text-navy"}`}>
+        <h2 className={`text-3xl md:text-4xl font-display font-semibold text-balance ${dark ? "text-white" : "text-black"}`}>
           {heading}
         </h2>
         <p className={`mt-4 text-base leading-relaxed ${dark ? "text-white/70" : "text-muted"}`}>
@@ -32,7 +32,7 @@ export default function CTASection({
           <Link href={primaryHref} className="btn-primary min-w-[180px]">
             {primaryLabel}
           </Link>
-          <Link href={secondaryHref} className={dark ? "btn-secondary" : "btn-secondary"}>
+          <Link href={secondaryHref} className={dark ? "btn-secondary border-white text-white hover:bg-white/10" : "btn-secondary"}>
             {secondaryLabel}
           </Link>
         </div>

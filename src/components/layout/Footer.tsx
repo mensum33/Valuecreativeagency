@@ -6,25 +6,25 @@ const footerLinks = footerColumns;
 
 export default function Footer() {
   return (
-    <footer className="bg-navy text-white">
+    <footer className="bg-charcoal text-white">
       <div className="container-site section-padding pb-8">
         <div className="grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-4">
             <Link href="/" className="font-display text-2xl font-semibold text-white">
-              Value Design<span className="text-accent">&amp;</span>Print
+              Value Design &amp; Print
             </Link>
             <p className="mt-4 text-sm leading-relaxed text-white/70 max-w-sm">
               Agency-quality design, print and digital media packages for small businesses across New Zealand.
             </p>
             <div className="mt-6 space-y-2 text-sm text-white/60">
               <p>
-                <a href={`mailto:${CONTACT.email}`} className="hover:text-accent transition-colors">
+                <a href={`mailto:${CONTACT.email}`} className="hover:text-white transition-colors">
                   {CONTACT.email}
                 </a>
               </p>
               {CONTACT.phone ? (
                 <p>
-                  <a href={`tel:${CONTACT.phone.replace(/\s/g, "")}`} className="hover:text-accent transition-colors">
+                  <a href={`tel:${CONTACT.phone.replace(/\s/g, "")}`} className="hover:text-white transition-colors">
                     {CONTACT.phone}
                   </a>
                 </p>
@@ -39,7 +39,7 @@ export default function Footer() {
               <ul className="space-y-2">
                 {footerLinks.shop.map((l) => (
                   <li key={l.href}>
-                    <Link href={l.href} className="text-sm text-white/60 hover:text-accent transition-colors">
+                    <Link href={l.href} className="text-sm text-white/60 hover:text-white transition-colors">
                       {l.label}
                     </Link>
                   </li>
@@ -51,7 +51,7 @@ export default function Footer() {
               <ul className="space-y-2">
                 {footerLinks.company.map((l) => (
                   <li key={l.href}>
-                    <Link href={l.href} className="text-sm text-white/60 hover:text-accent transition-colors">
+                    <Link href={l.href} className="text-sm text-white/60 hover:text-white transition-colors">
                       {l.label}
                     </Link>
                   </li>
@@ -63,7 +63,7 @@ export default function Footer() {
               <ul className="space-y-2">
                 {footerLinks.resources.map((l) => (
                   <li key={l.href}>
-                    <Link href={l.href} className="text-sm text-white/60 hover:text-accent transition-colors">
+                    <Link href={l.href} className="text-sm text-white/60 hover:text-white transition-colors">
                       {l.label}
                     </Link>
                   </li>
@@ -75,7 +75,7 @@ export default function Footer() {
               <ul className="space-y-2">
                 {footerLinks.policies.map((l) => (
                   <li key={l.href}>
-                    <Link href={l.href} className="text-sm text-white/60 hover:text-accent transition-colors">
+                    <Link href={l.href} className="text-sm text-white/60 hover:text-white transition-colors">
                       {l.label}
                     </Link>
                   </li>

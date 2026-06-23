@@ -13,14 +13,14 @@ export default function PackageCard({ pkg, variant = "default" }: PackageCardPro
   if (variant === "compact") {
     return (
       <Link href={`/packages/${pkg.slug}`} className="card-premium group block overflow-hidden">
-        <div className="relative aspect-[4/3] overflow-hidden">
+        <div className="relative aspect-[4/3] overflow-hidden img-bw">
           <ImageWithFallback folder={pkg.imageFolder} alt={pkg.name} fill />
         </div>
         <div className="p-4">
-          <p className="font-semibold text-navy group-hover:text-accent transition-colors line-clamp-2">
+          <p className="font-semibold text-black group-hover:underline transition-colors line-clamp-2">
             {pkg.name}
           </p>
-          <p className="mt-1 text-lg font-display text-accent">{formatPrice(pkg.price)}</p>
+          <p className="mt-1 text-lg font-display text-black">{formatPrice(pkg.price)}</p>
         </div>
       </Link>
     );
@@ -28,15 +28,15 @@ export default function PackageCard({ pkg, variant = "default" }: PackageCardPro
 
   return (
     <article className="card-premium group flex flex-col overflow-hidden">
-      <Link href={`/packages/${pkg.slug}`} className="relative aspect-[4/3] overflow-hidden block">
+      <Link href={`/packages/${pkg.slug}`} className="relative aspect-[4/3] overflow-hidden block img-bw">
         <ImageWithFallback folder={pkg.imageFolder} alt={pkg.name} fill />
-        <div className="absolute top-3 right-3 rounded-full bg-white/95 px-3 py-1.5 text-sm font-display font-semibold text-accent shadow-sm">
+        <div className="absolute top-3 right-3 rounded-full bg-white px-3 py-1.5 text-sm font-display font-semibold text-black border border-border">
           {formatPrice(pkg.price)}
         </div>
       </Link>
       <div className="flex flex-1 flex-col p-5 md:p-6">
         <Link href={`/packages/${pkg.slug}`}>
-          <h3 className="text-lg font-display font-semibold text-navy group-hover:text-accent transition-colors">
+          <h3 className="text-lg font-display font-semibold text-black group-hover:underline transition-colors">
             {pkg.name}
           </h3>
         </Link>

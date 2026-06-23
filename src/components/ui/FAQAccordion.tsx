@@ -20,16 +20,16 @@ export default function FAQAccordion({ items, limit }: FAQAccordionProps) {
           <div key={faq.id}>
             <button
               type="button"
-              className="flex w-full items-center justify-between gap-4 px-5 py-4 md:px-6 md:py-5 text-left hover:bg-ivory/50 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-accent"
+              className="flex w-full items-center justify-between gap-4 px-5 py-4 md:px-6 md:py-5 text-left hover:bg-lightgrey transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-black"
               onClick={() => setOpenId(isOpen ? null : faq.id)}
               aria-expanded={isOpen}
             >
-              <span className="font-semibold text-navy pr-4">{faq.question}</span>
+              <span className="font-semibold text-black pr-4">{faq.question}</span>
               <span
-                className={`shrink-0 flex h-8 w-8 items-center justify-center rounded-full border border-border transition-transform ${isOpen ? "rotate-180 bg-sky/40" : ""}`}
+                className={`shrink-0 flex h-8 w-8 items-center justify-center rounded-full border border-border transition-transform ${isOpen ? "rotate-180 bg-lightgrey" : ""}`}
                 aria-hidden="true"
               >
-                <svg className="h-4 w-4 text-navy" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg className="h-4 w-4 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
               </span>
