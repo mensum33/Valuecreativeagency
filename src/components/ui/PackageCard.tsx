@@ -6,27 +6,10 @@ import TrustBadges from "./TrustBadges";
 
 interface PackageCardProps {
   pkg: Package;
-  variant?: "default" | "compact" | "hero";
+  variant?: "default" | "compact";
 }
 
 export default function PackageCard({ pkg, variant = "default" }: PackageCardProps) {
-  if (variant === "hero") {
-    return (
-      <div className="card-premium p-4 w-full max-w-[220px]">
-        <div className="relative aspect-[4/3] overflow-hidden rounded-xl mb-3">
-          <ImageWithFallback
-            folder={pkg.imageFolder}
-            alt={pkg.name}
-            fill
-            className="rounded-xl"
-          />
-        </div>
-        <p className="text-xs font-semibold text-navy line-clamp-2 leading-snug">{pkg.name}</p>
-        <p className="mt-1 text-lg font-display font-semibold text-accent">{formatPrice(pkg.price)}</p>
-      </div>
-    );
-  }
-
   if (variant === "compact") {
     return (
       <Link href={`/packages/${pkg.slug}`} className="card-premium group block overflow-hidden">
@@ -47,7 +30,7 @@ export default function PackageCard({ pkg, variant = "default" }: PackageCardPro
     <article className="card-premium group flex flex-col overflow-hidden">
       <Link href={`/packages/${pkg.slug}`} className="relative aspect-[4/3] overflow-hidden block">
         <ImageWithFallback folder={pkg.imageFolder} alt={pkg.name} fill />
-        <div className="absolute top-3 right-3 rounded-full bg-white/95 px-3 py-1 text-sm font-bold text-accent shadow-sm">
+        <div className="absolute top-3 right-3 rounded-full bg-white/95 px-3 py-1.5 text-sm font-display font-semibold text-accent shadow-sm">
           {formatPrice(pkg.price)}
         </div>
       </Link>

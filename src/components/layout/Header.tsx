@@ -32,21 +32,12 @@ export default function Header() {
             ))}
           </nav>
 
-          <div className="hidden lg:flex items-center gap-3">
-            <Link href="/upload-artwork" className="text-sm font-semibold text-navy hover:text-accent transition-colors">
+          <div className="hidden lg:flex items-center gap-4">
+            <Link href="/upload-artwork" className="text-sm font-semibold text-navy hover:text-accent transition-colors whitespace-nowrap">
               Upload Artwork
             </Link>
-            <Link href="/packages" className="btn-primary py-2.5 px-5 text-sm">
+            <Link href="/packages" className="btn-primary py-2.5 px-5 text-sm whitespace-nowrap">
               Shop Packages
-            </Link>
-            <Link
-              href="/checkout"
-              className="relative flex h-10 w-10 items-center justify-center rounded-full border border-border bg-white hover:border-accent/30 transition-colors"
-              aria-label="Cart"
-            >
-              <svg className="h-5 w-5 text-navy" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
-              </svg>
             </Link>
           </div>
 
@@ -92,9 +83,6 @@ export default function Header() {
             </Link>
             <Link href="/packages" className="btn-primary" onClick={() => setMobileOpen(false)}>
               Shop Packages
-            </Link>
-            <Link href="/checkout" className="btn-secondary" onClick={() => setMobileOpen(false)}>
-              Cart
             </Link>
           </div>
         </nav>

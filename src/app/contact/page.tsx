@@ -35,12 +35,14 @@ export default function ContactPage() {
                   {CONTACT.email}
                 </a>
               </li>
-              <li>
-                <span className="text-muted">Phone: </span>
-                <a href={`tel:${CONTACT.phone.replace(/\s/g, "")}`} className="text-navy font-medium hover:text-accent">
-                  {CONTACT.phone}
-                </a>
-              </li>
+              {CONTACT.phone ? (
+                <li>
+                  <span className="text-muted">Phone: </span>
+                  <a href={`tel:${CONTACT.phone.replace(/\s/g, "")}`} className="text-navy font-medium hover:text-accent">
+                    {CONTACT.phone}
+                  </a>
+                </li>
+              ) : null}
               <li>
                 <span className="text-muted">Location: </span>
                 <span className="text-navy font-medium">{CONTACT.location}</span>

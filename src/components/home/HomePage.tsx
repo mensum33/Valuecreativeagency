@@ -1,9 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import PackageCard from "@/components/ui/PackageCard";
+import HeroVisualBoard from "@/components/home/HeroVisualBoard";
+import TrustStrip from "@/components/home/TrustStrip";
+import PackageReassurance from "@/components/home/PackageReassurance";
+import WhatCustomersExpect from "@/components/home/WhatCustomersExpect";
 import PackageGrid from "@/components/ui/PackageGrid";
-import TrustBadges from "@/components/ui/TrustBadges";
 import ProcessTimeline from "@/components/ui/ProcessTimeline";
 import ProofWorkflow from "@/components/ui/ProofWorkflow";
 import RecentWorkGrid from "@/components/ui/RecentWorkGrid";
@@ -11,38 +13,13 @@ import IndustryCard from "@/components/ui/IndustryCard";
 import ServiceCard from "@/components/ui/ServiceCard";
 import FAQAccordion from "@/components/ui/FAQAccordion";
 import CTASection from "@/components/ui/CTASection";
-import TestimonialCard from "@/components/ui/TestimonialCard";
 import ImageWithFallback from "@/components/ui/ImageWithFallback";
-import { packages, getFeaturedPackages } from "@/data/packages";
+import { packages } from "@/data/packages";
 import { getFeaturedWork } from "@/data/recentWork";
 import { industries } from "@/data/industries";
 import { services } from "@/data/services";
 import { faqs, homepageFaqIds, type FAQ } from "@/data/faqs";
 import { HERO_TRUST_LINE } from "@/lib/constants";
-
-const heroPackages = [
-  packages.find((p) => p.slug === "premium-laminated-business-cards")!,
-  packages.find((p) => p.slug === "pull-up-banner-package")!,
-  packages.find((p) => p.slug === "full-menu-book-package")!,
-];
-
-const floatingMockups = [
-  { folder: "packages/business-cards", label: "Business cards", className: "top-4 right-8 w-32 md:w-40 rotate-3" },
-  { folder: "packages/full-menu-book", label: "Menu book", className: "top-24 left-4 w-28 md:w-36 -rotate-6" },
-  { folder: "packages/event-tickets", label: "Tickets", className: "bottom-32 right-4 w-24 md:w-32 rotate-12" },
-  { folder: "packages/pull-up-banner", label: "Pull-up banner", className: "bottom-16 left-8 w-28 md:w-36 -rotate-3" },
-  { folder: "packages/light-box", label: "Light box", className: "top-1/2 right-1/4 w-24 md:w-28 rotate-6" },
-  { folder: "packages/gift-vouchers", label: "Digital tile", className: "bottom-4 right-1/3 w-20 md:w-24 -rotate-12" },
-];
-
-const trustStripItems = [
-  { label: "Clear package pricing", icon: "price" },
-  { label: "Two design options included", icon: "options" },
-  { label: "Final proof before print", icon: "proof" },
-  { label: "NZ-wide delivery", icon: "delivery" },
-  { label: "Real recent work", icon: "work" },
-  { label: "Secure checkout", icon: "secure" },
-];
 
 const whyChooseUs = [
   { title: "Agency-quality design", desc: "Professional creative direction without agency hourly rates." },
@@ -69,95 +46,63 @@ const homepageFaqs: FAQ[] = homepageFaqIds
 export default function HomePage() {
   return (
     <>
-      {/* Section 1: Hero */}
-      <section className="relative overflow-hidden border-b border-border">
-        <div className="absolute inset-0 bg-grid opacity-30 pointer-events-none" aria-hidden="true" />
+      {/* Section 1: Premium agency hero */}
+      <section className="relative overflow-hidden border-b border-border bg-paper">
+        <div
+          className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-sky/30 to-transparent pointer-events-none"
+          aria-hidden="true"
+        />
         <div className="container-site section-padding pb-12 md:pb-20">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            <div className="animate-fade-in-up">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+            <div>
               <p className="text-sm font-semibold uppercase tracking-widest text-accent mb-4">
                 Christchurch • NZ-wide
               </p>
-              <h1 className="text-4xl md:text-5xl lg:text-[3.25rem] font-display font-normal text-navy leading-[1.1] text-balance">
-                Big-Agency Style. Small-Business Pricing.
+              <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-display font-normal text-navy leading-[1.08]">
+                Big-Agency Style.
+                <br />
+                Small-Business Pricing.
               </h1>
               <p className="mt-6 text-base md:text-lg text-muted leading-relaxed max-w-xl">
-                Agency-quality design, print and digital media packages for New Zealand small businesses. Choose a package, get two design options, approve your proof, and receive ready-to-use material delivered NZ-wide.
+                Creative agency quality, packaged for small businesses. Choose a fixed-price design, print or digital media package, approve your proof, and receive ready-to-use material delivered NZ-wide.
               </p>
               <div className="mt-8 flex flex-col sm:flex-row gap-4">
-                <Link href="/packages" className="btn-primary">
+                <Link href="/packages" className="btn-primary text-center">
                   Shop Packages
                 </Link>
-                <Link href="/recent-work" className="btn-secondary">
+                <Link href="/recent-work" className="btn-secondary text-center">
                   View Recent Work
                 </Link>
               </div>
-              <p className="mt-6 text-xs text-muted leading-relaxed">{HERO_TRUST_LINE}</p>
+              <p className="mt-6 text-sm text-muted leading-relaxed">{HERO_TRUST_LINE}</p>
             </div>
 
-            <div className="relative min-h-[420px] md:min-h-[480px]">
-              <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-sky/40 via-white to-border/30 border border-border" />
-              <div className="relative p-6 md:p-8 h-full flex flex-col">
-                <p className="text-xs font-semibold uppercase tracking-wider text-muted mb-4">Shop online — fixed prices</p>
-                <div className="flex flex-wrap gap-3 justify-center md:justify-end">
-                  {heroPackages.map((pkg, i) => (
-                    <div
-                      key={pkg.slug}
-                      className="animate-fade-in-up animate-float"
-                      style={{ animationDelay: `${0.2 + i * 0.15}s` }}
-                    >
-                      <PackageCard pkg={pkg} variant="hero" />
-                    </div>
-                  ))}
-                </div>
-                {floatingMockups.map((mock, i) => (
-                  <div
-                    key={mock.label}
-                    className={`absolute hidden md:block rounded-xl overflow-hidden border border-border shadow-premium opacity-85 animate-fade-in-up ${mock.className}`}
-                    style={{ animationDelay: `${0.4 + i * 0.1}s` }}
-                  >
-                    <div className="relative aspect-square">
-                      <ImageWithFallback folder={mock.folder} alt={mock.label} fill />
-                    </div>
-                  </div>
-                ))}
-              </div>
+            <div className="relative lg:pl-4">
+              <HeroVisualBoard />
             </div>
           </div>
         </div>
       </section>
 
       {/* Section 2: Trust strip */}
-      <section className="border-b border-border bg-white py-5">
-        <div className="container-site">
-          <ul className="flex flex-wrap justify-center gap-x-6 gap-y-3 md:gap-x-10">
-            {trustStripItems.map((item) => (
-              <li key={item.label} className="flex items-center gap-2 text-sm font-medium text-navy">
-                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-sky/50 text-trust" aria-hidden="true">
-                  <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                </span>
-                {item.label}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
+      <TrustStrip />
 
-      {/* Section 3: Featured packages */}
-      <section className="section-padding">
+      {/* Section 3: Shop fixed-price packages */}
+      <section id="packages" className="section-padding">
         <div className="container-site">
-          <div className="max-w-2xl">
+          <div className="max-w-3xl">
             <h2 className="text-3xl md:text-4xl font-display font-semibold text-navy">
-              Shop fixed-price creative packages
+              Shop Fixed-Price Packages
             </h2>
             <p className="mt-4 text-muted leading-relaxed">
-              Clear pricing, two design options, proof approval and NZ-wide delivery.
+              Clear prices, two design options, proof approval and NZ-wide delivery.
+            </p>
+            <p className="mt-4 text-sm text-navy/80 leading-relaxed border-l-2 border-sky pl-4">
+              Every package includes two design options and proof approval before print — so you know exactly what you&apos;re getting before production starts.
             </p>
           </div>
           <div className="mt-10 md:mt-14">
-            <PackageGrid packages={getFeaturedPackages()} columns={3} />
+            <PackageGrid packages={packages} columns={3} />
           </div>
           <div className="mt-10 text-center">
             <Link href="/packages" className="btn-secondary">
@@ -167,31 +112,15 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Section 4: Shop by business type */}
-      <section className="section-padding bg-white border-y border-border">
-        <div className="container-site">
-          <div className="max-w-2xl">
-            <h2 className="text-3xl md:text-4xl font-display font-semibold text-navy">
-              Packages built around your business
-            </h2>
-            <p className="mt-4 text-muted leading-relaxed">
-              Start with your industry and choose the package that fits.
-            </p>
-          </div>
-          <div className="mt-10 md:mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {industries.map((ind) => (
-              <IndustryCard key={ind.id} industry={ind} />
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Section 4: Package buying reassurance */}
+      <PackageReassurance />
 
       {/* Section 5: How it works */}
       <section className="section-padding">
         <div className="container-site">
           <div className="max-w-2xl mb-10 md:mb-14">
             <h2 className="text-3xl md:text-4xl font-display font-semibold text-navy">
-              Simple, clear and approved before print
+              Simple, clear and approved before print.
             </h2>
           </div>
           <ProcessTimeline />
@@ -243,8 +172,27 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Section 8: Why choose us */}
+      {/* Section 8: Packages by business type */}
       <section className="section-padding bg-white border-y border-border">
+        <div className="container-site">
+          <div className="max-w-2xl">
+            <h2 className="text-3xl md:text-4xl font-display font-semibold text-navy">
+              Packages built around your business.
+            </h2>
+            <p className="mt-4 text-muted leading-relaxed">
+              Start with your industry and choose the package that fits.
+            </p>
+          </div>
+          <div className="mt-10 md:mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {industries.map((ind) => (
+              <IndustryCard key={ind.id} industry={ind} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Section 9: Why small businesses choose us */}
+      <section className="section-padding">
         <div className="container-site">
           <div className="max-w-2xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-display font-semibold text-navy text-balance">
@@ -257,6 +205,7 @@ export default function HomePage() {
           <div className="mt-10 md:mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {whyChooseUs.map((item) => (
               <div key={item.title} className="card-premium p-5 md:p-6">
+                <div className="h-px w-6 bg-accent mb-4" aria-hidden="true" />
                 <h3 className="font-display font-semibold text-navy">{item.title}</h3>
                 <p className="mt-2 text-sm text-muted leading-relaxed">{item.desc}</p>
               </div>
@@ -265,10 +214,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Section 9: Services */}
-      <section className="section-padding">
+      {/* Section 10: Services overview */}
+      <section className="section-padding bg-white border-y border-border">
         <div className="container-site">
-          <h2 className="text-3xl md:text-4xl font-display font-semibold text-navy">More than printing</h2>
+          <h2 className="text-3xl md:text-4xl font-display font-semibold text-navy">More than printing.</h2>
           <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {services.map((s) => (
               <ServiceCard key={s.id} service={s} />
@@ -280,12 +229,12 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Section 10: AI-enhanced design */}
+      {/* Section 11: AI-enhanced design */}
       <section className="section-padding bg-sky/20 border-y border-border">
         <div className="container-site">
           <div className="max-w-2xl">
             <h2 className="text-3xl md:text-4xl font-display font-semibold text-navy">
-              AI-enhanced design for print and digital
+              AI-enhanced design for print and digital.
             </h2>
             <p className="mt-4 text-muted leading-relaxed">
               We can improve low-quality images, create premium visual concepts, enhance supplied photos and prepare artwork for print and online use.
@@ -295,17 +244,17 @@ export default function HomePage() {
             {aiCards.map((card) => (
               <div key={card.title} className="card-premium p-5 md:p-6">
                 <h3 className="font-display font-semibold text-navy">{card.title}</h3>
-                <p className="mt-2 text-sm text-muted">{card.desc}</p>
+                <p className="mt-2 text-sm text-muted leading-relaxed">{card.desc}</p>
               </div>
             ))}
           </div>
-          <p className="mt-6 text-sm text-muted italic">
+          <p className="mt-6 text-sm text-muted">
             AI enhancement can improve many images, but final proof approval is always required before printing.
           </p>
         </div>
       </section>
 
-      {/* Section 11: Studio trust */}
+      {/* Section 12: Studio trust */}
       <section className="section-padding">
         <div className="container-site">
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
@@ -316,13 +265,10 @@ export default function HomePage() {
               <p className="mt-4 text-muted leading-relaxed">
                 Value Design &amp; Print helps small businesses look professional with affordable creative packages. From business cards and flyers to menus, banners, tickets, posters and digital media, we make the process simple and clear.
               </p>
-              <p className="mt-4 text-sm font-semibold text-trust">
-                Trusted for real design and print projects
-              </p>
             </div>
             <div className="grid grid-cols-2 gap-4">
               {["workspace", "printer", "finished-print", "behind-scenes"].map((label) => (
-                <div key={label} className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-border">
+                <div key={label} className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-border shadow-card">
                   <ImageWithFallback folder="studio" alt={`Studio — ${label}`} fill />
                 </div>
               ))}
@@ -331,30 +277,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Section 12: Client feedback placeholder */}
-      <section className="section-padding bg-white border-y border-border">
-        <div className="container-site">
-          <h2 className="text-3xl md:text-4xl font-display font-semibold text-navy text-center mb-10">
-            What clients appreciate
-          </h2>
-          <div className="grid gap-6 md:grid-cols-3">
-            <TestimonialCard
-              quote="Clear communication, professional design and everything ready for print."
-              attribution="Small business client"
-            />
-            <TestimonialCard
-              quote="The design options made it easy to choose the right look."
-              attribution="Hospitality client"
-            />
-            <TestimonialCard
-              quote="Helpful service from design through to final printed material."
-              attribution="Event client"
-            />
-          </div>
-        </div>
-      </section>
+      {/* Section 13: What customers can expect */}
+      <WhatCustomersExpect />
 
-      {/* Section 13: FAQ */}
+      {/* Section 14: FAQ */}
       <section className="section-padding">
         <div className="container-site max-w-3xl">
           <h2 className="text-3xl md:text-4xl font-display font-semibold text-navy text-center mb-10">
@@ -367,7 +293,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Section 14: Final CTA */}
+      {/* Section 15: Final CTA */}
       <CTASection />
     </>
   );

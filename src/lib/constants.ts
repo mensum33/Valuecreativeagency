@@ -4,8 +4,8 @@ export const SITE_DESCRIPTION =
   "Agency-quality design, print and digital media packages for New Zealand small businesses.";
 
 export const CONTACT = {
-  email: "hello@valuedesignprint.co.nz",
-  phone: "03 123 4567",
+  email: process.env.NEXT_PUBLIC_BUSINESS_EMAIL || "hello@valuedesignprint.co.nz",
+  phone: process.env.NEXT_PUBLIC_BUSINESS_PHONE || "",
   location: "Christchurch, New Zealand",
 };
 
@@ -19,4 +19,4 @@ export const TRUST_LINE =
   "Based in Christchurch • Delivered NZ-wide • Two design options • Proof before print";
 
 export const HERO_TRUST_LINE =
-  "Christchurch based • NZ-wide delivery • Two design options • Proof before print • Secure checkout";
+  "Christchurch based • NZ-wide delivery • Two design options • Proof before print";

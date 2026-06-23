@@ -1,37 +1,54 @@
 const workflowSteps = [
-  "Order placed",
-  "Details uploaded",
-  "2 design options",
-  "Final proof",
-  "Approved",
-  "Printed",
-  "Delivered",
+  { label: "Order placed", status: "complete" as const },
+  { label: "Details uploaded", status: "complete" as const },
+  { label: "2 design options", status: "active" as const },
+  { label: "Final proof", status: "pending" as const },
+  { label: "Approved", status: "approved" as const },
+  { label: "Printed", status: "future" as const },
+  { label: "Delivered", status: "future" as const },
 ];
+
+const statusStyles = {
+  complete: "bg-white/10 text-white/80 border-white/20",
+  active: "bg-accent/20 text-white border-accent/40",
+  pending: "bg-white text-navy border-white shadow-card",
+  approved: "bg-trust/20 text-trust border-trust/40",
+  future: "bg-white/5 text-white/50 border-white/10",
+};
 
 export default function ProofWorkflow() {
   return (
-    <div className="overflow-x-auto pb-2">
-      <div className="flex min-w-max items-center gap-2 md:gap-3">
-        {workflowSteps.map((step, i) => (
-          <div key={step} className="flex items-center gap-2 md:gap-3">
-            <div
-              className={`rounded-xl px-4 py-3 text-xs md:text-sm font-semibold whitespace-nowrap ${
-                i >= 4
-                  ? "bg-trust/10 text-trust border border-trust/20"
-                  : i === 3
-                    ? "bg-accent/10 text-accent border border-accent/20"
-                    : "bg-white border border-border text-navy"
-              }`}
-            >
-              {step}
+    <div className="rounded-2xl border border-white/10 bg-white/5 p-5 md:p-8 backdrop-blur-sm">
+      <p className="text-xs font-semibold uppercase tracking-wider text-white/50 mb-6">
+        Proof workflow
+      </p>
+      <div className="overflow-x-auto pb-2">
+        <div className="flex min-w-max items-stretch gap-2 md:gap-3">
+          {workflowSteps.map((step, i) => (
+            <div key={step.label} className="flex items-center gap-2 md:gap-3">
+              <div className="flex flex-col items-center">
+                <div
+                  className={`rounded-xl px-4 py-3 md:px-5 md:py-4 text-xs md:text-sm font-semibold whitespace-nowrap border ${statusStyles[step.status]}`}
+                >
+                  {step.label}
+                </div>
+                {step.status === "approved" && (
+                  <span className="mt-2 flex items-center gap-1 text-[10px] font-semibold text-trust">
+                    <svg className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    Required
+                  </span>
+                )}
+              </div>
+              {i < workflowSteps.length - 1 && (
+                <svg className="h-4 w-4 text-white/30 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              )}
             </div>
-            {i < workflowSteps.length - 1 && (
-              <svg className="h-4 w-4 text-muted shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            )}
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );

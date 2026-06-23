@@ -22,11 +22,13 @@ export default function Footer() {
                   {CONTACT.email}
                 </a>
               </p>
-              <p>
-                <a href={`tel:${CONTACT.phone.replace(/\s/g, "")}`} className="hover:text-accent transition-colors">
-                  {CONTACT.phone}
-                </a>
-              </p>
+              {CONTACT.phone ? (
+                <p>
+                  <a href={`tel:${CONTACT.phone.replace(/\s/g, "")}`} className="hover:text-accent transition-colors">
+                    {CONTACT.phone}
+                  </a>
+                </p>
+              ) : null}
               <p>{CONTACT.location}</p>
             </div>
           </div>
